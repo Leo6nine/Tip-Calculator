@@ -4,6 +4,8 @@ const billInput = document.getElementById('bill-amount');
 const customTipInput = document.getElementById('custom-tip');
 const peopleInput = document.getElementById('people-count');
 const resetButton = document.getElementById('reset-button');
+const increasePeopleButton = document.getElementById('increase-people');
+const decreasePeopleButton = document.getElementById('decrease-people');
 const tipButtons = document.querySelectorAll('.tip-button');
 
 const billError = document.getElementById('bill-error');
@@ -14,6 +16,8 @@ const tipSelectionError = document.getElementById('tip-selection-error');
 const tipAmountOutput = document.getElementById('tip-amount');
 const totalAmountOutput = document.getElementById('total-amount');
 const perPersonOutput = document.getElementById('per-person');
+const tipSummaryOutput = document.getElementById('tip-summary');
+const currentTotalAmountOutput = document.getElementById('current-total-amount');
 const resultsGrid = document.getElementById('results-grid');
 const resultsPanel = document.querySelector('.results-panel');
 
@@ -101,7 +105,9 @@ function getPeopleCount() {
 function displayResults(tipAmount, totalAmount, perPersonAmount) {
   tipAmountOutput.textContent = formatCurrency(tipAmount);
   totalAmountOutput.textContent = formatCurrency(totalAmount);
+  currentTotalAmountOutput.textContent = formatCurrency(totalAmount);
   perPersonOutput.textContent = formatCurrency(perPersonAmount);
+  tipSummaryOutput.textContent = formatCurrency(tipAmount / Number(peopleInput.value || 1));
 
   // Restart the animation so the results fade in every time we calculate.
   resultsGrid.classList.remove('is-updated');
@@ -195,7 +201,9 @@ function resetCalculator() {
 
   tipAmountOutput.textContent = '$0.00';
   totalAmountOutput.textContent = '$0.00';
+  currentTotalAmountOutput.textContent = '$0.00';
   perPersonOutput.textContent = '$0.00';
+  tipSummaryOutput.textContent = '$0.00';
 
   resultsPanel.classList.add('is-empty');
   resultsGrid.classList.remove('is-updated');
@@ -228,6 +236,19 @@ peopleInput.addEventListener('input', handlePeopleInput);
 
 // Reset everything when the reset button is clicked.
 resetButton.addEventListener('click', resetCalculator);
+
+// Let the step buttons adjust the people count without using the keyboard.
+increasePeopleButton.addEventListener('click', () => {
+  const currentPeople = Number(peopleInput.value) || 1;
+  peopleInput.value = String(currentPeople + 1);
+  handlePeopleInput();
+});
+
+decreasePeopleButton.addEventListener('click', () => {
+  const currentPeople = Number(peopleInput.value) || 1;
+  peopleInput.value = String(Math.max(1, currentPeople - 1));
+  handlePeopleInput();
+});
 
 // Start with a clean empty state.
 resetCalculator();
