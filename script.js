@@ -26,7 +26,7 @@ let selectedTipPercentage = null;
 
 // Format a number as currency text with two decimal places.
 function formatCurrency(amount) {
-  return `$${amount.toFixed(2)}`;
+  return `₦${amount.toFixed(2)}`;
 }
 
 // Remove the active style from every preset tip button.
