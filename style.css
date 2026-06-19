@@ -462,13 +462,16 @@ input:hover {
 
 @media (max-width: 680px) {
   .app-shell {
-    padding: 14px;
+    padding: 0;
   }
 
   .calculator-card {
     width: min(100%, 440px);
     padding: 16px 14px 18px;
-    border-width: 3px;
+    /* border-width: 3px; */
+    border-radius: 0;
+    box-shadow: none;
+    border:0;
   }
 
   .results-grid {
