@@ -18,16 +18,16 @@
       </div>
 
       <div class="card-header">
-        <p class="eyebrow">Tip Calculator</p>
-        <h1 id="app-title">Total Amount</h1>
-        <p class="subtitle">Set the bill, tip, and split amount with a clean, dark dashboard.</p>
+        <p class="eyebrow">Welcome to</p>
+        <h1 id="app-title">Tip Calculator</h1>
+        <p class="subtitle">Set the bill, tip, and split amount.</p>
       </div>
 
       <form id="tip-form" class="calculator-form" novalidate>
         <section class="hero-total" aria-labelledby="results-title">
           <span class="hero-label">Total Amount</span>
           <strong class="hero-amount" id="current-total-amount">₦0.00</strong>
-          <span class="hero-note">Split calculator with live validation</span>
+          <span class="hero-note">Thank you for your generosity!</span>
         </section>
 
         <div class="field-group">
@@ -51,14 +51,26 @@
         <fieldset class="field-group">
           <legend>Tip Percentage</legend>
           <div class="rating-row" aria-label="Preset tip percentages">
-            <button type="button" class="tip-button star-button" data-tip="5" aria-label="5 percent tip">★</button>
-            <button type="button" class="tip-button star-button" data-tip="10" aria-label="10 percent tip">★</button>
-            <button type="button" class="tip-button star-button" data-tip="15" aria-label="15 percent tip">★</button>
-            <button type="button" class="tip-button star-button" data-tip="20" aria-label="20 percent tip">★</button>
-            <span class="rating-outline" aria-hidden="true">☆</span>
-          </div>
-          <div class="tip-scale" aria-hidden="true">
-            <span>0</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span><span>35</span>
+            <button type="button" class="tip-option" data-tip="5" aria-label="5 percent tip">
+              <span class="tip-option-star" aria-hidden="true">★</span>
+              <span class="tip-option-value">5</span>
+            </button>
+            <button type="button" class="tip-option" data-tip="10" aria-label="10 percent tip">
+              <span class="tip-option-star" aria-hidden="true">★</span>
+              <span class="tip-option-value">10</span>
+            </button>
+            <button type="button" class="tip-option" data-tip="15" aria-label="15 percent tip">
+              <span class="tip-option-star" aria-hidden="true">★</span>
+              <span class="tip-option-value">15</span>
+            </button>
+            <button type="button" class="tip-option" data-tip="20" aria-label="20 percent tip">
+              <span class="tip-option-star" aria-hidden="true">★</span>
+              <span class="tip-option-value">20</span>
+            </button>
+            <button type="button" class="tip-option" data-tip="25" aria-label="25 percent tip">
+              <span class="tip-option-star" aria-hidden="true">★</span>
+              <span class="tip-option-value">25</span>
+            </button>
           </div>
           <p class="field-error" id="tip-selection-error" aria-live="polite"></p>
         </fieldset>

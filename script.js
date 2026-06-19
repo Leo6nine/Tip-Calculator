@@ -6,7 +6,7 @@ const peopleInput = document.getElementById('people-count');
 const resetButton = document.getElementById('reset-button');
 const increasePeopleButton = document.getElementById('increase-people');
 const decreasePeopleButton = document.getElementById('decrease-people');
-const tipButtons = document.querySelectorAll('.tip-button');
+const tipButtons = document.querySelectorAll('.tip-option');
 
 const billError = document.getElementById('bill-error');
 const customTipError = document.getElementById('custom-tip-error');
@@ -199,11 +199,11 @@ function resetCalculator() {
   setFieldError(peopleInput, peopleError, '');
   setTipSelectionError('');
 
-  tipAmountOutput.textContent = '$0.00';
-  totalAmountOutput.textContent = '$0.00';
-  currentTotalAmountOutput.textContent = '$0.00';
-  perPersonOutput.textContent = '$0.00';
-  tipSummaryOutput.textContent = '$0.00';
+  tipAmountOutput.textContent = '₦0.00';
+  totalAmountOutput.textContent = '₦0.00';
+  currentTotalAmountOutput.textContent = '₦0.00';
+  perPersonOutput.textContent = '₦0.00';
+  tipSummaryOutput.textContent = '₦0.00';
 
   resultsPanel.classList.add('is-empty');
   resultsGrid.classList.remove('is-updated');

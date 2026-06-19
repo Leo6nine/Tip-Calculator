@@ -47,7 +47,7 @@ body {
   overflow: hidden;
 }
 
-.calculator-card::before,
+/* .calculator-card::before,
 .calculator-card::after {
   content: "";
   position: absolute;
@@ -55,9 +55,9 @@ body {
   pointer-events: none;
   background: linear-gradient(135deg, rgba(255, 110, 110, 0.2), rgba(255, 191, 36, 0.04));
   filter: blur(0.5px);
-}
+} */
 
-.calculator-card::before {
+/* .calculator-card::before {
   width: 140px;
   height: 10px;
   right: -28px;
@@ -71,7 +71,7 @@ body {
   left: -38px;
   bottom: 74px;
   transform: rotate(38deg);
-}
+} */
 
 .card-header {
   margin-bottom: 10px;
@@ -196,73 +196,69 @@ input:hover {
   color: var(--muted);
 }
 
-.tip-buttons,
-.rating-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
+
 
 .rating-row {
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 10px;
+  align-items: end;
+  justify-items: center;
   padding-top: 4px;
 }
 
-.tip-button,
+.tip-option,
 .primary-button,
 .secondary-button {
-  border: 0;
-  border-radius: 14px;
+  /* border: 0; */
   cursor: pointer;
   font-size: 1rem;
   font-weight: 700;
   transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 
-.tip-button {
-  min-width: 48px;
-  height: 48px;
-  padding: 0;
+.tip-option {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  min-width: 0;
+  width: 100%;
+  padding: 8px 0 6px;
   background: transparent;
   color: rgba(255, 255, 255, 0.18);
-  border: 1px solid transparent;
-  font-size: 1.8rem;
-  line-height: 1;
+  border-radius: 16px;
 }
 
-.tip-button:hover,
+.tip-option:hover,
 .primary-button:hover,
 .secondary-button:hover {
   transform: translateY(-1px);
 }
 
-.tip-button.is-active {
-  color: var(--primary);
-  text-shadow: 0 0 0 transparent;
-}
-
-.rating-outline {
-  color: rgba(255, 255, 255, 0.18);
-  font-size: 1.8rem;
+.tip-option-star {
+  font-size: 1.9rem;
   line-height: 1;
+  color: rgba(255, 255, 255, 0.18);
+  transition: color 0.2s ease, text-shadow 0.2s ease, filter 0.2s ease;
 }
 
-.tip-scale {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 0;
-  margin-top: -2px;
-  padding: 0 4px;
-  color: rgba(255, 255, 255, 0.12);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+.tip-option-value {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.28);
+  transition: color 0.2s ease, text-shadow 0.2s ease, filter 0.2s ease;
 }
 
-.tip-scale span {
-  text-align: center;
+.tip-option.is-active .tip-option-star,
+.tip-option.is-active .tip-option-value {
+  color: var(--primary);
+  text-shadow: 0 0 12px rgba(255, 191, 36, 0.95);
+  filter: drop-shadow(0 0 8px rgba(255, 191, 36, 0.65));
+}
+
+.tip-option.is-active {
+  transform: translateY(-2px) scale(1.03);
 }
 
 .field-help {
@@ -317,6 +313,7 @@ input:hover {
   gap: 12px;
   flex-wrap: wrap;
   padding-top: 6px;
+  justify-content: space-between;
 }
 
 .primary-button,
@@ -327,6 +324,7 @@ input:hover {
 .primary-button {
   background: linear-gradient(135deg, #f6b21b 0%, #ffcc47 100%);
   color: #1b2244;
+  width: clamp(12rem, 45vw, 17rem);
   box-shadow: 0 12px 22px rgba(255, 191, 36, 0.18);
 }
 
@@ -491,5 +489,13 @@ input:hover {
 
   .result-value {
     font-size: 1.7rem;
+  }
+
+  .rating-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .tip-option:last-child {
+    grid-column: 2;
   }
 }
